@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div id="calculator">
+      <input type="text" id="display" readonly/>
+      <div class="button-container">
+        <button class="button" onclick="clearDisplay()">C</button>
+        <button class="button" onclick="display(1)">1</button>
+        <button class="button" onclick="display(2)">2</button>
+        <button class="button" onclick="display('+')">+</button>
+        <button class="button" onclick="display(3)">3</button>
+        <button class="button" onclick="display(4)">4</button>
+        <button class="button" onclick="display('-')">-</button>
+        <button class="button" onclick="display(5)">5</button>
+        <button class="button" onclick="display(6)">6</button>
+        <button class="button" onclick="display('*')">*</button>
+        <button class="button" onclick="display(7)">7</button>
+        <button class="button" onclick="display(8)">8</button>
+        <button class="button" onclick="display('/')">/</button>
+        <button class="button" onclick="evaluateValue()">=</button>
+        <button class="button" onclick="display(9)">9</button>
+        <button class="button" onclick="display(0)">0</button>
+        <button class="button" onclick="display('.')">.</button>
+        <button class="button" onclick="backspace()"><i class="fa-solid fa-delete-left"></i></button>
+      </div>
+    </div>
+
+    <script>
+      function display(str){
+        document.querySelector('#display').value += str;
+      }
+      function evaluateValue(){
+        let displayValue = document.querySelector('#display').value;
+        let result = eval(displayValue);
+        document.querySelector('#display').value = result;
+      }
+      function clearDisplay(){
+        document.querySelector('#display').value = ' ';
+      }
+      function backspace(){
+        let displayValue = document.querySelector('#display').value;
+        document.querySelector('#display').value = displayValue.slice(0,displayValue.length - 1);
+      }
+    </script>
+  </body>
+</html>
